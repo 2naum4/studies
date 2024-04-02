@@ -2,7 +2,7 @@ import argparse
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
-from1 faker import Faker
+from faker import Faker
 import time
 from datetime import datetime
 
