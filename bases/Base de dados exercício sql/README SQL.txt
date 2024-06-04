@@ -1,0 +1,1 @@
+Todas as tabelas possuem a mesma chave do ID do board_game 
