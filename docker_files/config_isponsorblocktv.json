@@ -1,0 +1,19 @@
+{
+    "devices": [
+        {
+            "screen_id": "ug94nfjvrltn276mrd0jo82gv6",
+            "name": "YouTube on TV"
+        }
+    ],
+    "apikey": "",
+    "skip_categories": [
+        "sponsor",
+        "selfpromo",
+        "exclusive_access",
+        "intro"
+    ],
+    "channel_whitelist": [],
+    "skip_count_tracking": false,
+    "mute_ads": false,
+    "skip_ads": false
+}
