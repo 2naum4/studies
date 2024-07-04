@@ -1,0 +1,54 @@
+name: invigorating_cathy
+services:
+  qbittorrent:
+    cpu_shares: 90
+    command: []
+    container_name: qbittorrent
+    deploy:
+      resources:
+        limits:
+          memory: 3823M
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - TORRENTING_PORT=6881
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8008
+    hostname: qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/qBittorrent/icon.png
+    ports:
+      - target: 8008
+        published: "8008"
+        protocol: tcp
+      - target: 6881
+        published: "6881"
+        protocol: tcp
+      - target: 6881
+        published: "6881"
+        protocol: udp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/qbitorrent
+        target: /config
+      - type: bind
+        source: /home/naum/Downloads
+        target: /downloads
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/qBittorrent/icon.png
+  index: ""
+  is_uncontrolled: false
+  port_map: "8008"
+  scheme: http
+  store_app_id: invigorating_cathy
+  title:
+    custom: qBitorrent

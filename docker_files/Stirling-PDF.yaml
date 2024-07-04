@@ -1,0 +1,72 @@
+name: stirling-pdf-tmc
+services:
+  app:
+    cpu_shares: 90
+    command: []
+    container_name: StirlingPDF
+    deploy:
+      resources:
+        limits:
+          memory: 3823M
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+    hostname: StirlingPDF
+    image: frooodle/s-pdf:latest
+    labels:
+      icon: https://raw.githubusercontent.com/Frooodle/Stirling-PDF/main/docs/stirling.png
+    ports:
+      - target: 8080
+        published: "35169"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/TMC-Store/stirling-pdf-tmc/training-data
+        target: /usr/share/tesseract-ocr/4.00/tessdata
+      - type: bind
+        source: /DATA/AppData/TMC-Store/stirling-pdf-tmc/configs
+        target: /configs
+    devices: []
+    cap_add: []
+    networks:
+      - default
+    privileged: false
+networks:
+  default:
+    name: stirling-pdf-tmc_default
+x-casaos:
+  architectures:
+    - amd64
+    - arm
+    - arm64
+  author: stirling-pdf
+  category: TMCstore
+  description:
+    en_us: This is a powerful locally hosted web based PDF manipulation tool using
+      docker that allows you to perform various operations on PDF files, such as
+      splitting merging, converting, reorganizing, adding images, rotating,
+      compressing, and more.
+  developer: stirling-pdf
+  hostname: ""
+  icon: https://raw.githubusercontent.com/Frooodle/Stirling-PDF/main/docs/stirling.png
+  index: /
+  is_uncontrolled: false
+  main: app
+  port_map: "35169"
+  scheme: http
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/mariosemes/CasaOS-TMCstore@main/Apps/stirling-pdf/screenshot-01.png
+  store_app_id: stirling-pdf-tmc
+  tagline:
+    en_us: This is a powerful locally hosted web based PDF manipulation tool using
+      docker that allows you to perform various operations on PDF files, such as
+      splitting merging, converting, reorganizing, adding images, rotating,
+      compressing, and more.
+  thumbnail: https://cdn.jsdelivr.net/gh/mariosemes/CasaOS-TMCstore@main/Apps/stirling-pdf/thumbnail.png
+  tips:
+    custom: |-
+      Username ```admin``` <br />
+      Password ```stirling```
+  title:
+    custom: Stirling-PDF
+    en_us: stirling-pdf
